@@ -39,11 +39,12 @@ function css() {
     .pipe(autoprefixer())
     // мініфікація css
     .pipe(cleanCSS())
-    // видалення коду, що не використовується
-    // щоб зрозуміти який код не використовується gulp дивиться на файл index.html
-    .pipe(purgecss({
-        content: ['./index.html']
-    }))
+    // не будемо використовувати плагін, що видаляє невикористовуваний код
+    // оскільки тоді він не побачить код, що призначений для встановлення стилів для 
+    // header__burger, коли він має клас active
+    // .pipe(purgecss({
+    //     content: ['./index.html']
+    // }))
     // зібрати всі файли стилів в одну кучу та помістити в styles.min.css
     .pipe(concat('styles.min.css'))
     .pipe(gulp.dest('./dist'))

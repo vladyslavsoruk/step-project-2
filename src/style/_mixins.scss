@@ -1,0 +1,14 @@
+@import "variables";
+
+@mixin flexBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin buttonStyle {
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    background-color: $purple-color;
+}
