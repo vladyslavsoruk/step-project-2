@@ -1,6 +1,7 @@
 @import "reset";
 @import "mixins";
 @import "variables";
+@import "fonts";
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -22,7 +23,7 @@ body {
     }
 
     &__navbar {
-        @include flexBox;
+        // @include flexBox;
         height: 100%;
     }
 
@@ -39,10 +40,13 @@ body {
         // по дефолту випадаюче меню не видно
         display: none;
         position: absolute;
+        // ставимо z-index: 999 щоб випадаюче меню завжди було на передньому плані
+        z-index: 999;
         top: 100%;
         left: 50%;
         transform: translate(-50%, 0);
         background-color: rgba(51, 51, 51, 1);
+        // пишемо min-width: 290px щоб випадаюче меню займало достатню ширину
         min-width: 290px;
         box-shadow: 0 14px rgba(51, 51, 51, 1);
         animation: burgerAnimation .4s;
@@ -62,7 +66,7 @@ body {
     }
 
     &__drop-list li a:active, &__drop-list li a:focus {
-        color: rgba(141, 129, 172, 1);
+        color: $purple-color;
     }
 
     &__drop-list li a:active::before, &__drop-list li a:focus::before {
@@ -74,6 +78,13 @@ body {
         bottom: 50%;
         transform: translate(0, 43%);
         left: -33px;
+    }
+
+    &__logo-img {
+        width: 43px;
+        height: 41px;
+        background: url('../src/img/fork-app-logo.png') center/cover no-repeat;
+        transition: .3s ease;
     }
 }
 
@@ -132,6 +143,7 @@ body {
 
 .button {
     @include buttonStyle;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .button--buy {
@@ -140,16 +152,271 @@ body {
     font-size: 15px;
     line-height: 15px;
     color: $white-color;
+    transition: .3s ease;
 }
 
 .app-introduction {
+    background: url("../src/img/section-app-introduction-background.png") center/cover no-repeat;
     height: 614px;
-    min-width: 320px;
+    // ставимо position: relative для абсолютного позиціонування кнопки download for free 
+    position: relative;
+    // min-width: 320px;
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    &__container {
+        @include flexBox;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 48px;
+        color: rgba(255, 255, 255, 1);
+        padding: 60px 0 19px 0;
+    }
+
+    &__description {
+        font-size: 18px;
+        line-height: 24px;
+        color: $purple-color;
+        text-align: center;
+        padding: 0 0 14px 0;
+    }
+
+    &__description--other-style {
+        // по дефолту цей текст скритий
+        display: none;
+        font-family: 'Lato';
+        text-align: center;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 24px;
+        color: $purple-color;
+        padding: 0 0 19px 0;
     }
 }
 
+// стилі для тексту //
+.main-text {
+    font-size: 14px;
+    line-height: 14px;
+    color: $grey-color;
+}
+
+.main-text--versions {
+    text-transform: uppercase;
+    padding: 0 0 14px 0;
+}
+
+.main-text--trial-period {
+    text-align: center;
+    padding: 35.5px 0 79.5px 0;
+}
+
+.button--download {
+    color: $white-color;
+    padding: 13px 29px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    min-width: 300px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    transition: .3s ease;
+}
+
+.header__logo-link {
+    text-decoration: none;
+    @include flexBox;
+    gap: 17px;
+}
+
+.header__logo-text {
+    // по дефолту не показується текст FOKIO
+    display: none;
+    font-family: 'Lato';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 16px;
+    color: rgba(141, 129, 172, 1);
+    transition: .3s ease;
+}
+
+.header__logo-and-btn-container {
+    @include flexBox;
+    height: 100%;
+}
+
+.header__menu {
+    // по дефолту не показуються вкладки
+    // display: none;
+}
+
+.header__list li a{
+    text-decoration: none;
+    color: $purple-color;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    transition: .3s ease;
+}
+
+.button--for-big-monitors {
+    // ховаємо кнопку що буде на екрані справа на великих моніторах
+    display: none;
+}
+
+@media (min-width: 481px) {
+    .wrapper {
+        padding: 0 20px;
+    }
+
+    // збільшуємо висоту хедера
+    .header {
+        height: 118px;
+
+        // ховаємо бургер меню
+        &__burger {
+            display: none;
+        }
+
+        &__navbar {
+            flex-direction: column;
+        }
+
+        &__list {
+            @include flexBox;
+            max-width: 449px;
+            margin: 0 auto;
+        }
+
+        &__logo-and-btn-container {
+            // задаємо конкретну висоту, оскільки у нас контейнер висотою 100% 
+            height: 73%;
+        }
+    }
+
+    .button--buy {
+        width: 145px;
+        height: 38px;
+        padding: 0;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .app-introduction {
+        &__title {
+            font-size: 72px;
+            padding: 69px 0 25px 0;
+        }
+
+        &__description {
+            display: none;
+        }
+
+        &__description--other-style {
+            display: block;
+        }
+    }
+
+    .button--download {
+        width: 390px;
+        height: 62px;
+        font-size: 21px;
+    }
+
+    .main-text--trial-period {
+        padding: 45.5px 0 93.5px 0;
+    }
+
+    .header__logo-text {
+        display: block;
+    }
+}
+
+@media (min-width: 993px) {
+
+    // зменшуємо висоту хедера
+    .header {
+        height: 100px;
+        background-color: #010005;
+        // ставимо чорний нижній бордер, оскільки, якщо його не поставити, буде ледь 
+        // помітна біла лінія між хедером і секцією
+        border-bottom: 5px solid black;
+
+        &__navbar {
+            @include flexBox;
+            flex-direction: row;
+        }
+
+        &__logo-and-btn-container {
+            display: flex;
+        }
+
+        &__menu {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 48px;
+        }
+
+        &__list {
+            margin: 0 0;
+            gap: 48px;
+            max-width: none;
+        }
+    }
+
+    .button.button--buy {
+        // ховаємо кнопку 
+        display: none;
+    }
+
+    .button.button--buy.button--for-big-monitors {
+        // показуємо кнопку що буде на екрані справа на великих моніторах
+        display: block;
+        transition: .3s ease;
+    }
+
+    .app-introduction {
+        &__title {
+            font-size: 82px;
+            padding: 83px 0 27px 0;
+        }
+
+        &__description--other-style {
+            font-size: 30px;
+        }
+    }
+
+    .main-text.main-text--versions {
+        font-size: 16px;
+    }
+}
+
+.header__list li:hover a{
+    color: $white-color;
+}
+
+.button.button--buy.button--for-big-monitors:hover,
+.button.button--buy:hover,
+.button.button--download:hover {
+    background-color: $white-color;
+    color: $purple-color;
+    border: 1px solid $purple-color;
+    box-sizing: border-box;
+}
+
+.button.button--download:hover {
+    border: 2px solid $purple-color;
+}
+
+.header__logo-link:hover .header__logo-text {
+    color: $white-color;
+}
+
+.header__logo-link:hover .header__logo-img {
+    background: url('../src/img/fork-app-logo-hover.png') center/cover no-repeat;
+}
