@@ -396,6 +396,15 @@ body {
     }
 }
 
+@media (min-width: 1201px) {
+   .wrapper {
+        width: 1200px;
+        margin: 0 auto;
+        // пишемо box-sizing: border-box щоб падінги не збільшували ширину обгортки
+        box-sizing: border-box;
+   }
+}
+
 .header__list li:hover a{
     color: $white-color;
 }
@@ -419,4 +428,137 @@ body {
 
 .header__logo-link:hover .header__logo-img {
     background: url('../src/img/fork-app-logo-hover.png') center/cover no-repeat;
+}
+
+// ----- PEOPLE ARE TALKING ABOUT FORK SECTION ----- //
+.mentions-about-fork {
+    position: relative;    
+    background: url('../src/img/people-are-talking-about-fork-background.png') center/cover no-repeat;
+
+    &__title {
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 48px;
+        text-align: center;
+        color: $white-color;
+        padding: 57px 0 53px 0;
+    }
+
+    &__container {
+
+    }
+
+    &__quote {
+        @include flexBox;
+        flex-direction: column;
+        gap: 33px;
+    }
+
+    &__text {
+        font-family: 'Lato';
+        font-style: italic;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: $white-color;
+        padding: 0 0 45px 0;
+    }
+
+    &__text--other-padding {
+        padding: 0 0 37px 0;
+    }
+
+    &__footer {
+        font-family: 'Lato';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        text-align: center;
+        color: rgba(162, 145, 165, 1);
+        padding: 0 0 22px 0;
+        box-sizing: border-box;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 2px;
+        width: 245px;
+        background-color: rgba(100, 87, 102, 1);
+    }
+}
+
+@media (min-width: 481px) {
+    .mentions-about-fork {
+        &__title {
+            padding: 86px 0 88px 0;
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // по осі Y вирівнюємо елементи донизу
+            align-items: end;
+            column-gap: 30px;
+            row-gap: 58px;
+        }
+
+        &__text {
+            // прибираємо всі падінги тексту
+            padding: 0;
+            // обмежуємо текст по ширині, щоб він не 'розповзався'
+            max-width: 345px;
+        }
+
+        // для pixel buddha збільшуємо gap між картинкою і текстом
+        &__quote--gap-40px {
+            gap: 40px;
+        }
+
+        &__footer {
+            // робимо падінги для футера, щоб була відстань між ним та грідом
+            padding: 68px 0 22px 0;
+            // обмежуємо текст по ширині, щоб він не 'розповзався'
+            max-width: 704px;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media (min-width: 595px) {
+    // робимо ширшою лінію внизу секції
+    .mentions-about-fork::after {
+        width: 555px;
+    }
+}
+
+@media (min-width: 1201px) {
+    .mentions-about-fork {
+        &__title {
+            padding: 108px 0 88px 0;
+        }
+
+        &__grid {
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 95px;
+            row-gap: 116px;
+        }
+
+        &__footer {
+            // робимо падінги для футера, щоб була відстань між ним та грідом
+            padding: 118px 0 22px 0;
+            // обмежуємо текст по ширині, щоб він не 'розповзався'
+            max-width: 887px;
+        }
+
+        // робимо ширшою лінію внизу секції
+        &::after {
+        width: 780px;
+        }
+    }
 }
