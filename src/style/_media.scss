@@ -1,0 +1,346 @@
+@media (min-width: 481px) {
+    .wrapper {
+        padding: 0 20px;
+    }
+
+    // збільшуємо висоту хедера
+    .header {
+        height: 118px;
+
+        // ховаємо бургер меню
+        &__burger {
+            display: none;
+        }
+
+        &__navbar {
+            flex-direction: column;
+        }
+
+        &__list {
+            @include flexBox;
+            max-width: 449px;
+            margin: 0 auto;
+        }
+
+        &__logo-and-btn-container {
+            // задаємо конкретну висоту, оскільки у нас контейнер висотою 100% 
+            height: 73%;
+        }
+    }
+
+    .button--buy {
+        width: 145px;
+        height: 38px;
+        padding: 0;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .app-introduction {
+        &__title {
+            font-size: 72px;
+            padding: 69px 0 25px 0;
+        }
+
+        &__description {
+            display: none;
+        }
+
+        &__description--other-style {
+            display: block;
+        }
+    }
+
+    .button--download {
+        width: 390px;
+        height: 62px;
+        font-size: 21px;
+    }
+
+    .main-text--trial-period {
+        padding: 45.5px 0 66px 0;
+    }
+
+    .header__logo-text {
+        display: block;
+    }
+    .mentions-about-fork {
+        &__title {
+            padding: 86px 0 88px 0;
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // по осі Y вирівнюємо елементи донизу
+            align-items: end;
+            column-gap: 30px;
+            row-gap: 58px;
+        }
+
+        &__text {
+            // прибираємо всі падінги тексту
+            padding: 0;
+            // обмежуємо текст по ширині, щоб він не 'розповзався'
+            max-width: 345px;
+        }
+
+        // для pixel buddha збільшуємо gap між картинкою і текстом
+        &__quote--gap-40px {
+            gap: 40px;
+        }
+
+        &__footer {
+            // робимо падінги для футера, щоб була відстань між ним та грідом
+            padding: 68px 0 22px 0;
+            // обмежуємо текст по ширині, щоб він не 'розповзався'
+            max-width: 704px;
+            margin: 0 auto;
+        }
+    }
+    .mentions-about-fork {
+        &__title {
+            padding: 86px 0 88px 0;
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // по осі Y вирівнюємо елементи донизу
+            align-items: end;
+            column-gap: 30px;
+            row-gap: 58px;
+        }
+
+        &__text {
+            // прибираємо всі падінги тексту
+            padding: 0;
+            // обмежуємо текст по ширині, щоб він не 'розповзався'
+            max-width: 345px;
+        }
+
+        // для pixel buddha збільшуємо gap між картинкою і текстом
+        &__quote--gap-40px {
+            gap: 40px;
+        }
+
+        &__footer {
+            // робимо падінги для футера, щоб була відстань між ним та грідом
+            padding: 68px 0 22px 0;
+            // обмежуємо текст по ширині, щоб він не 'розповзався'
+            max-width: 704px;
+            margin: 0 auto;
+        }
+    }
+}
+@media(max-width: 1161px){
+    .here-is-what-you-get{
+        .wrapper{
+            .here-is-what-you-get__title{
+                font-size: 34px;
+            }
+        }
+    }
+}
+@media (max-width: 992px){
+    .revolutionary-editor{
+        .title__revolution{
+            font-size: 42px!important;
+            line-height: 42px!important;
+        }
+    }
+    .here-is-what-you-get{
+        background-color: #FFFFFF;
+        .wrapper{
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            .here-is-what-you-get__title{
+                display: none;
+            }
+            .here-is-what-you-get__title-main{
+                display: block;
+                @include fontStyle('Montserrat', 700, 42px, 42px);
+                margin: 0 auto;
+                text-align: center;
+                padding-bottom: 52px;
+                color: #8D81AC;
+            }
+            .block-about{
+                grid-row: 2/3;
+                max-width: 100%;
+                .part{
+                    flex-direction: column;
+                    max-width: 100%;
+                    .main-text{
+                        max-width: 100%;
+                        text-align: center;
+                        .part-describe{
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    .fork-subscription-pricing{
+        .fork-subscription-pricing-title{
+            font-size: 42px;
+            line-height: 44px;
+        }
+    }
+    .fork-subscription-pricing {
+        .fork-subscription-pricing-cards {
+            row-gap: 30px;
+        }
+    }
+}
+@media (max-width: 480px) {
+    .revolutionary-editor{
+        .title__revolution{
+            font-size: 26px!important;
+            line-height: 26px!important;
+        }
+    }
+    .here-is-what-you-get{
+        .wrapper{
+            .here-is-what-you-get__title-main{
+                font-size: 32px;
+                line-height: 38px;
+            }
+        }
+    }
+    .fork-subscription-pricing{
+        .fork-subscription-pricing-title{
+            font-size: 36px;
+            line-height: 48px;
+        }
+    }
+    .fork-subscription-pricing {
+        .fork-subscription-pricing-cards {
+            row-gap: 18px;
+        }
+    }
+}
+
+@media (min-width: 993px) {
+
+    // зменшуємо висоту хедера
+    .header {
+        height: 100px;
+        background-color: #010005;
+        // ставимо чорний нижній бордер, оскільки, якщо його не поставити, буде ледь 
+        // помітна біла лінія між хедером і секцією
+        border-bottom: 5px solid black;
+
+        &__navbar {
+            @include flexBox;
+            flex-direction: row;
+        }
+
+        &__logo-and-btn-container {
+            display: flex;
+        }
+
+        &__menu {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 48px;
+        }
+
+        &__list {
+            margin: 0 0;
+            gap: 48px;
+            max-width: none;
+        }
+    }
+
+    .button.button--buy {
+        // ховаємо кнопку 
+        display: none;
+    }
+
+    .button.button--buy.button--for-big-monitors {
+        // показуємо кнопку що буде на екрані справа на великих моніторах
+        display: block;
+        transition: .3s ease;
+    }
+
+    .app-introduction {
+        &__title {
+            font-size: 82px;
+            padding: 83px 0 27px 0;
+        }
+
+        &__description--other-style {
+            font-size: 30px;
+        }
+    }
+
+    .main-text.main-text--versions {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1201px) {
+   .wrapper {
+        width: 1200px;
+        margin: 0 auto;
+        // пишемо box-sizing: border-box щоб падінги не збільшували ширину обгортки
+        box-sizing: border-box;
+   }
+   .mentions-about-fork {
+        &__title {
+            padding: 108px 0 88px 0;
+        }
+
+        &__grid {
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 95px;
+            row-gap: 116px;
+        }
+
+        &__footer {
+            // робимо падінги для футера, щоб була відстань між ним та грідом
+            padding: 118px 0 22px 0;
+            // обмежуємо текст по ширині, щоб він не 'розповзався'
+            max-width: 887px;
+        }
+
+        // робимо ширшою лінію внизу секції
+        &::after {
+            width: 780px;
+        }
+        .mentions-about-fork {
+            &__title {
+                padding: 108px 0 88px 0;
+            }
+
+            &__grid {
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 95px;
+                row-gap: 116px;
+            }
+
+            &__footer {
+                // робимо падінги для футера, щоб була відстань між ним та грідом
+                padding: 118px 0 22px 0;
+                // обмежуємо текст по ширині, щоб він не 'розповзався'
+                max-width: 887px;
+            }
+
+            // робимо ширшою лінію внизу секції
+            &::after {
+            width: 780px;
+            }
+        }
+    }
+}
+
+@media (min-width: 595px) {
+    // робимо ширшою лінію внизу секції
+    .mentions-about-fork::after {
+        width: 555px;
+    }
+}
